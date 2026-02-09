@@ -10,18 +10,12 @@ board = [
     [" ", " ", " "]
 ]
 
-def player_move(board, player):
-    while True: 
-        xCord = int(input("Input x coordinate Move: "))
-        yCord = int(input("Input y coordinate Move: "))
-        if valid_move(board, xCord, yCord) == True:
-            board[yCord][xCord] = player
-            return
-        else:
-            print("Invalid Move, Space Occupied")
+def player_move(board, player, xCoord, yCoord):
+        board[yCoord][xCoord] = player
+        return
 
-def valid_move(board, xCord, yCord):
-    if board[yCord][xCord] == " ":
+def valid_move(board, xCoord, yCoord):
+    if board[yCoord][xCoord] == " ":
         return True
     else: 
         return False
@@ -53,10 +47,5 @@ def print_board(board):
         if i < 2:
             print("--+---+--")
 
-while True:
-    print_board(board)
-    player_move(board, "X")
-    print_board(board)
-    player_move(board, "O")
 
 
